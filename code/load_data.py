@@ -1,5 +1,6 @@
 import tensorflow_datasets as tfds
 import pandas as pd
+from tqdm import tqdm
 
 
 raw_data = tfds.load("movielens/100k-ratings", split="train")
@@ -7,9 +8,9 @@ raw_data = tfds.load("movielens/100k-ratings", split="train")
 
 def tfds_to_dataframe(tf_dataset):
 
-    data = [example for example in tf_dataset]
+    data = [example for example in tqdm(tf_dataset, desc="Listing Data")]
 
-    data = [{key: value.numpy() for key, value in example.items()} for example in data]
+    data = [{key: value.numpy() for key, value in example.items()} for example in tqdm(data, desc="Dicting Data")]
 
     return pd.DataFrame(data)
 
@@ -18,5 +19,5 @@ raw_data_df = tfds_to_dataframe(raw_data)
 # test_df = tfds_to_dataframe(test_ds_raw)
 
 
-raw_data_df.to_csv('data/movielens.csv', index=False)
+raw_data_df.to_csv('data/movielens-100k.csv', index=False)
 print('DataFrame is Saved in `data` folder')
