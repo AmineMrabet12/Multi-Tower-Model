@@ -3,7 +3,7 @@ import pandas as pd
 
 
 raw_data = tfds.load("movielens/100k-ratings", split="train")
-train_ds_raw, test_ds_raw = tfds.load("movielens/100k-ratings", split=['train[:80%]', 'train[80%:]'])
+# train_ds_raw, test_ds_raw = tfds.load("movielens/100k-ratings", split=['train[:80%]', 'train[80%:]'])
 
 def tfds_to_dataframe(tf_dataset):
 
