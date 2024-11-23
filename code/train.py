@@ -1,7 +1,7 @@
 import tensorflow as tf
-from keras import layers, Model
-from keras.utils import to_categorical
-from keras.callbacks import ModelCheckpoint, EarlyStopping
+from tensorflow.keras import layers, Model
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 import numpy as np
 
 
