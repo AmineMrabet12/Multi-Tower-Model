@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from sklearn.preprocessing import OneHotEncoder, StandardScaler, MultiLabelBinarizer
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm  # For progress bar

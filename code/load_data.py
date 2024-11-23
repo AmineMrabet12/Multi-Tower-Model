@@ -6,6 +6,7 @@ from tqdm import tqdm
 raw_data = tfds.load("movielens/100k-ratings", split="train")
 # train_ds_raw, test_ds_raw = tfds.load("movielens/100k-ratings", split=['train[:80%]', 'train[80%:]'])
 
+
 def tfds_to_dataframe(tf_dataset):
 
     data = [example for example in tqdm(tf_dataset, desc="Listing Data")]
@@ -13,6 +14,7 @@ def tfds_to_dataframe(tf_dataset):
     data = [{key: value.numpy() for key, value in example.items()} for example in tqdm(data, desc="Dicting Data")]
 
     return pd.DataFrame(data)
+
 
 raw_data_df = tfds_to_dataframe(raw_data)
 # train_df = tfds_to_dataframe(train_ds_raw)
